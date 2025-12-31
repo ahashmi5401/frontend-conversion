@@ -1,0 +1,7 @@
+<svg width="250" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="250" height="500" rx="40" fill="#1f2937"/>
+  <rect x="10" y="10" width="230" height="480" rx="35" fill="#000"/>
+  <rect x="80" y="15" width="90" height="25" rx="12" fill="#1f2937"/>
+  <rect x="25" y="60" width="200" height="400" rx="10" fill="#667eea"/>
+  <text x="125" y="280" font-family="Arial" font-size="24" fill="#fff" text-anchor="middle" font-weight="bold">MyBindle</text>
+</svg>

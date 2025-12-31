@@ -1,0 +1,6 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#667eea"/>
+  <circle cx="100" cy="80" r="40" fill="#fff"/>
+  <path d="M100 120 L80 140 L70 130 L50 150 L150 150 L130 130 L120 140 Z" fill="#fff"/>
+  <text x="100" y="180" font-family="Arial" font-size="16" fill="#fff" text-anchor="middle">MyBindle Logo</text>
+</svg>
