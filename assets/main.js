@@ -66,55 +66,55 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Content Creator",
-    image: "https://i.pravatar.cc/150?img=1",
+    image: "./assets/images/avatar-1.svg",
     text: "MyBindle has completely changed how I connect with my audience. The interface is intuitive and the features are exactly what I needed!"
   },
   {
     name: "Michael Chen",
     role: "Entrepreneur",
-    image: "https://i.pravatar.cc/150?img=2",
+    image: "./assets/images/avatar-2.svg",
     text: "I've tried many social platforms, but MyBindle stands out. The privacy features and customization options are top-notch."
   },
   {
     name: "Emily Rodriguez",
     role: "Digital Artist",
-    image: "https://i.pravatar.cc/150?img=3",
+    image: "./assets/images/avatar-3.svg",
     text: "As an artist, I love how easy it is to share my work and connect with other creatives. The community here is amazing!"
   },
   {
     name: "David Thompson",
     role: "Photographer",
-    image: "https://i.pravatar.cc/150?img=4",
+    image: "./assets/images/avatar-4.svg",
     text: "The image quality and sharing features are perfect for my photography portfolio. Highly recommend!"
   },
   {
     name: "Lisa Anderson",
     role: "Blogger",
-    image: "https://i.pravatar.cc/150?img=5",
+    image: "./assets/images/avatar-5.svg",
     text: "MyBindle makes it so easy to engage with my readers. The real-time messaging is a game-changer."
   },
   {
     name: "James Wilson",
     role: "Fitness Coach",
-    image: "https://i.pravatar.cc/150?img=6",
+    image: "./assets/images/avatar-6.svg",
     text: "I use MyBindle to motivate my clients and share workout tips. The community features are fantastic!"
   },
   {
     name: "Maria Garcia",
     role: "Travel Enthusiast",
-    image: "https://i.pravatar.cc/150?img=7",
+    image: "./assets/images/avatar-7.svg",
     text: "Sharing my travel stories has never been easier. The stories feature is my favorite!"
   },
   {
     name: "Robert Lee",
     role: "Tech Reviewer",
-    image: "https://i.pravatar.cc/150?img=8",
+    image: "./assets/images/avatar-8.svg",
     text: "The privacy controls are impressive. I feel safe sharing my content here."
   },
   {
     name: "Jennifer Brown",
     role: "Food Blogger",
-    image: "https://i.pravatar.cc/150?img=9",
+    image: "./assets/images/avatar-9.svg",
     text: "MyBindle's interface is clean and modern. It makes sharing my recipes a joy!"
   }
 ];
@@ -154,24 +154,23 @@ seeMoreBtn.addEventListener("click", () => {
   }
 });
 
-// Initialize Lenis for smooth scrolling
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: 'vertical',
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2
+// Simple smooth scrolling (fallback for blocked CDN)
+// CSS smooth scrolling is already enabled in styles.css
+// This is just a backup implementation
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scroll for all internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 });
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-
-// Initialize Lucide Icons
+// Initialize Lucide Icons (if available)
 if (typeof lucide !== 'undefined') {
   lucide.createIcons();
 }
