@@ -1,0 +1,6 @@
+<svg width="150" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="150" height="100" rx="10" fill="#fff"/>
+  <text x="75" y="40" font-family="Arial" font-size="12" fill="#667eea" text-anchor="middle" font-weight="bold">Seamless</text>
+  <text x="75" y="60" font-family="Arial" font-size="12" fill="#667eea" text-anchor="middle" font-weight="bold">Connection</text>
+  <circle cx="75" cy="80" r="5" fill="#f97316"/>
+</svg>
