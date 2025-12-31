@@ -136,29 +136,32 @@ testimonials.forEach(testimonial => {
 // See More Button Functionality
 const seeMoreBtn = document.getElementById("see-more-btn");
 const fadeOverlay = document.getElementById("fade-overlay");
-let isExpanded = false;
 
-seeMoreBtn.addEventListener("click", () => {
-  isExpanded = !isExpanded;
+if (seeMoreBtn && fadeOverlay) {
+  let isExpanded = false;
   
-  if (isExpanded) {
-    testimonialGrid.style.maxHeight = "none";
-    fadeOverlay.style.display = "none";
-    seeMoreBtn.textContent = "Show Less";
-  } else {
-    testimonialGrid.style.maxHeight = "600px";
-    fadeOverlay.style.display = "flex";
-    seeMoreBtn.textContent = "See More";
-    // Scroll back to testimonials section
-    document.querySelector("#testimonial-grid").scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-});
+  seeMoreBtn.addEventListener("click", () => {
+    isExpanded = !isExpanded;
+    
+    if (isExpanded) {
+      testimonialGrid.style.maxHeight = "none";
+      fadeOverlay.style.display = "none";
+      seeMoreBtn.textContent = "Show Less";
+    } else {
+      testimonialGrid.style.maxHeight = "600px";
+      fadeOverlay.style.display = "flex";
+      seeMoreBtn.textContent = "See More";
+      // Scroll back to testimonials section
+      const testimonialsSection = document.querySelector("#testimonial-grid");
+      if (testimonialsSection) {
+        testimonialsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  });
+}
 
-// Simple smooth scrolling (fallback for blocked CDN)
-// CSS smooth scrolling is already enabled in styles.css
-// This is just a backup implementation
+// Simple smooth scrolling for internal links
 document.addEventListener('DOMContentLoaded', function() {
-  // Smooth scroll for all internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
@@ -169,10 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
-// Initialize Lucide Icons (if available)
-if (typeof lucide !== 'undefined') {
-  lucide.createIcons();
-}
 
 console.log("MyBindle app initialized successfully!");
